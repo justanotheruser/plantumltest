@@ -12,6 +12,12 @@ jobs:
   generate-diagrams:
     runs-on: ubuntu-latest
     steps:
+    - name: Set up Java
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+        distribution: 'oracle'
+
     - name: Install Dependencies
       run: |
         sudo apt-get install graphviz
