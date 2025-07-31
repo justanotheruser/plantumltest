@@ -11,7 +11,7 @@ on:
 jobs:
   generate-diagrams:
     runs-on: ubuntu-latest
-
+    environment: debug_action
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
