@@ -12,33 +12,10 @@ jobs:
   generate-diagrams:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/setup-java@v4
-      with:
-        java-version: '21'
-        distribution: 'oracle'
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Install Dependencies
-      run: |
-        sudo apt-get install graphviz
-
-    - name: Checkout repository
-      uses: actions/checkout@v4
-
-    - name: Process Diagrams
-      run: |
-        java -jar $(java-config -p plantuml) -v -tsvg -r -o "${{ github.workspace }}/diagrams/output" "diagrams/src/**.puml"
-        java -jar $(java-config -p plantuml) -v -tsvg -r -o "${{ github.workspace }}/diagrams/output" "diagrams/src/**.plantuml"
-        pwd && ls output
-
-    - name: Commit Diagrams
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add .
-        git commit -m ":rocket: adding generated diagrams" || exit 0
-
-    - name: Push Diagrams
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-      if: success()
+      - name: Generate diagrams
+        uses: holowinski/plantuml-github-action@1.2021.1
+        with:
+          args: -v -tsvg diagrams/*.puml
