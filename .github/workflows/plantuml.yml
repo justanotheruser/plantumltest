@@ -11,32 +11,29 @@ on:
 jobs:
   generate-diagrams:
     runs-on: ubuntu-latest
-
     steps:
+    - name: Install Dependencies
+      run: |
+        sudo apt-get install graphviz
+
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Set up Java
-      uses: actions/setup-java@v2
-      with:
-        java-version: '11'
-        distribution: 'temurin'
-
-    - name: Install PlantUML
-      run: sudo apt install plantuml
-
-    - name: Generate diagrams
-      run: plantuml *.plantuml
-
-    - uses: actions/checkout@v4
-    - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v3
-
-    - name: Commit diagrams
+    - name: Process Diagrams
       run: |
-        git config --local user.email "github-actions[bot]@users.noreply.github.com"
-        git config --local user.name "github-actions[bot]"
-        git add **/*.png
-        git commit -m "Automated diagram generation"
-        git push origin main
+        java -jar plantuml.jar -v -tsvg -r -o "${{ github.workspace }}/diagrams/output" "diagrams/src/**.puml"
+        java -jar plantuml.jar -v -tsvg -r -o "${{ github.workspace }}/diagrams/output" "diagrams/src/**.plantuml"
+        pwd && ls output
+
+    - name: Commit Diagrams
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add .
+        git commit -m ":rocket: adding generated diagrams" || exit 0
+
+    - name: Push Diagrams
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
       if: success()
