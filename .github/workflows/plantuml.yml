@@ -9,28 +9,19 @@ on:
       - main
 
 jobs:
-  generate-diagrams:
+  generate_plantuml:
     runs-on: ubuntu-latest
-
+    name: plantuml
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-
-    - name: Install PlantUML
-      run: sudo apt install plantuml
-
-    - name: Generate diagrams
-      run: plantuml *.plantuml
-
-    - uses: actions/checkout@v4
-    - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v3
-
-    - name: Commit diagrams
-      run: |
-        git config --local user.email "github-actions[bot]@users.noreply.github.com"
-        git config --local user.name "github-actions[bot]"
-        git add **/*.png
-        git commit -m "Automated diagram generation"
-        git push origin main
-      if: success()
+      - name: checkout
+        uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+      - name: plantuml
+        id: plantuml
+        uses: grassedge/generate-plantuml-action@v1.5
+        with:
+          path: .
+          message: "Render PlantUML files"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

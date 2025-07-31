@@ -3,7 +3,7 @@ on: [push]
 jobs:
   build:
     # Пусть лежит как пример
-    #if: false
+    if: false
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
