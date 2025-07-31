@@ -6,17 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5ed648c8-2afb-4e91-b348-2fd24b88f53b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.github/workflows/plantuml.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/plantuml.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/C4_Component.puml" beforeDir="false" afterPath="$PROJECT_DIR$/diagrams/src/C4_Component.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/C4_Container.puml" beforeDir="false" afterPath="$PROJECT_DIR$/diagrams/src/C4_Container.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/C4_Context.puml" beforeDir="false" afterPath="$PROJECT_DIR$/diagrams/src/C4_Context.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code.puml" beforeDir="false" afterPath="$PROJECT_DIR$/diagrams/src/Code.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Component.puml" beforeDir="false" afterPath="$PROJECT_DIR$/diagrams/src/Component.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Container.puml" beforeDir="false" afterPath="$PROJECT_DIR$/diagrams/src/Container.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Context.puml" beforeDir="false" afterPath="$PROJECT_DIR$/diagrams/src/Context.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello.plantuml" beforeDir="false" afterPath="$PROJECT_DIR$/diagrams/src/hello.plantuml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +84,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1753915038489</updated>
-      <workItem from="1753915039632" duration="5511000" />
+      <workItem from="1753915039632" duration="5816000" />
     </task>
     <servers />
   </component>
