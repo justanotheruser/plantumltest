@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ed648c8-2afb-4e91-b348-2fd24b88f53b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Code.puml" beforeDir="false" afterPath="$PROJECT_DIR$/Code.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Component.puml" beforeDir="false" afterPath="$PROJECT_DIR$/Component.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Container.puml" beforeDir="false" afterPath="$PROJECT_DIR$/Container.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Context.puml" beforeDir="false" afterPath="$PROJECT_DIR$/Context.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello.plantuml" beforeDir="false" afterPath="$PROJECT_DIR$/hello.plantuml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/plantuml.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/plantuml.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +83,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1753915038489</updated>
-      <workItem from="1753915039632" duration="4451000" />
+      <workItem from="1753915039632" duration="4784000" />
     </task>
     <servers />
   </component>
