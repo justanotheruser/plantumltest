@@ -11,67 +11,20 @@ on:
 jobs:
   generate-diagrams:
     runs-on: ubuntu-latest
-    environment: debug_action
-    env:
-      GATEWAY_IP: ${{ secrets.GATEWAY_IP }}
-      SSH_PUBLIC_KEY: ${{ secrets.SSH_PUBLIC_KEY }}
-      GATEWAY_PRIVATE_KEY: ${{ secrets.GATEWAY_PRIVATE_KEY }}
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Debug SSH Configuration
-      run: |
-        echo "Gateway IP: $GATEWAY_IP"
-        echo "SSH Public Key Preview (first 10 chars): ${SSH_PUBLIC_KEY:0:10}"
-        echo "Gateway Private Key Preview (first 10 chars): ${GATEWAY_PRIVATE_KEY:0:10}"
-
-    - name: Configure UFW Firewall
-      run: |
-        sudo ufw allow from $GATEWAY_IP to any port 2222
-        sudo ufw enable
-      env:
-        GATEWAY_IP: ${{ secrets.GATEWAY_IP }}
-
-    - name: Install SSH Server
-      run: |
-        sudo apt update -qqqy
-        sudo apt install -qqqy openssh-server tmux
-        sudo systemctl enable ssh
-        sudo systemctl restart ssh
-
-    - name: Configure SSH Settings
-      run: |
-        echo "PasswordAuthentication no" | sudo tee -a /etc/ssh/sshd_config
-        echo "ChallengeResponseAuthentication no" | sudo tee -a /etc/ssh/sshd_config
-        sudo sed -i "s/.*Port.*/Port 2222/g" /etc/ssh/sshd_config
-        sudo systemctl restart ssh
-        cat /etc/ssh/sshd_config | grep -E 'Port|PubkeyAuthentication'
-
-    - name: Setup SSH Keys
-      run: |
-        mkdir -p ~/.ssh
-        echo "$SSH_PUBLIC_KEY" >> ~/.ssh/authorized_keys
-        chmod 600 ~/.ssh/authorized_keys
-        chmod 700 ~/.ssh
-      env:
-        SSH_PUBLIC_KEY: ${{ secrets.SSH_PUBLIC_KEY }}
-
-    - name: Debug via SSH
-      uses: edipizarro/runner-open-ssh@main
-      with:
-        sshPublicKey: ${{ secrets.SSH_PUBLIC_KEY }}
-        gatewayPrivateKey: ${{ secrets.GATEWAY_PRIVATE_KEY }}
-        gatewayIP: ${{ secrets.GATEWAY_IP }}
-        maxLifeTime: 300
-      env:
-        GATEWAY_IP: ${{ secrets.GATEWAY_IP }}
-
- 
+    - name: Install PlantUML
+      run: sudo apt install plantuml
 
     - name: Generate diagrams
       run: plantuml *.plantuml
+
+    - uses: actions/checkout@v4
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
 
     - name: Commit diagrams
       run: |
