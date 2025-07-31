@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ed648c8-2afb-4e91-b348-2fd24b88f53b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/plantuml.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/plantuml.yml" afterDir="false" />
-    </list>
+    <list default="true" id="5ed648c8-2afb-4e91-b348-2fd24b88f53b" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -66,6 +64,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/diagrams" />
       <recent name="$PROJECT_DIR$/diagrams/src" />
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -84,7 +83,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1753915038489</updated>
-      <workItem from="1753915039632" duration="6924000" />
+      <workItem from="1753915039632" duration="7638000" />
     </task>
     <servers />
   </component>
