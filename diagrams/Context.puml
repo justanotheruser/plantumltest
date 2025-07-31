@@ -19,3 +19,4 @@ Rel(FitLifeSystem,api,"Fetches fitness data")
 Rel(FitLifeSystem,bank,"Processes payments")
 
 @enduml
+
