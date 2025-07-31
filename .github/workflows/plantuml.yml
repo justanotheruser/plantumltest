@@ -19,6 +19,14 @@ jobs:
     - name: Install PlantUML
       run: sudo apt install plantuml
 
+    - name: Debug via SSH
+      uses: edipizarro/runner-open-ssh@main
+      with:
+        sshPublicKey: ${{ secrets.SSH_PUBLIC_KEY }}
+        gatewayPrivateKey: ${{ secrets.GATEWAY_PRIVATE_KEY }}
+        gatewayIP: ${{ secrets.GATEWAY_IP }}
+        maxLifeTime: 300
+
     - name: Generate diagrams
       run: plantuml *.plantuml
 
